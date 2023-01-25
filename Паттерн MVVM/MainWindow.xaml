@@ -16,13 +16,13 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Text="{Binding FirstField}" Style="{StaticResource ResourceKey=tbInputText}" PreviewTextInput="Field_PreviewTextInput"/>
+                <TextBox Grid.Column="0" Text="{Binding FirstField}" Style="{StaticResource ResourceKey=tbInputText}"/>
                 <TextBlock Text="{Binding CBIndex}" HorizontalAlignment="Center" Grid.Column="1"/>
-                <TextBox Grid.Column="2" Text="{Binding SecondlyField}" Style="{StaticResource ResourceKey=tbInputText}" PreviewTextInput="Field_PreviewTextInput"/>
+                <TextBox Grid.Column="2" Text="{Binding SecondlyField}" Style="{StaticResource ResourceKey=tbInputText}"/>
             </Grid>
             <Button Command="{Binding Command}" Content="Вычислить"/>
             <GroupBox Header="Результат:">
-                <TextBlock Text ="{Binding ResultChange}" IsEnabled="False"/>
+                <TextBlock Text ="{Binding ResultChange}" IsEnabled="False" Margin="10, 0, 10, 0"/>
             </GroupBox>
         </StackPanel>
     </Grid>

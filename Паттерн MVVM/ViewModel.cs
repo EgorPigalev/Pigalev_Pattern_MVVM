@@ -44,11 +44,11 @@ namespace Паттерн_MVVM
             }
         }
         int cbIndex = -1;
-        public int IndexSelected // свойство для нахождения индекса выбранного в Combobox элемента
+        public int IndexSelected // Cвойство для нахождения индекса выбранного в Combobox элемента
         {
             set
             {
-                // индек - это необходимое значение, которое нужно получить
+                Model.indexComboBox = value;
                 cbIndex = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("CBIndex"));  // событие, которое реагирует на изменение свойства
             }
@@ -77,15 +77,31 @@ namespace Паттерн_MVVM
             {
                 double numberFirst = 0; // Переменная, которая хранит числовое значение первого поля
                 double numberSecondly = 0; // Переменная, которая хранит числовое значение второго поля
-                if (Model.firstField != "")
+                if (Model.firstField != "") // Если первое поле не пустое
                 {
-                    numberFirst = Convert.ToDouble(Model.firstField);
+                    try
+                    {
+                        numberFirst = Convert.ToDouble(Model.firstField);
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Первое поле имеет неверный формат, оно должно быть числовым (дробная часть отделяется символом \",\")!");
+                        return;
+                    }
                 }
-                if (Model.secondlyField != "")
+                if (Model.secondlyField != "") // Если второе поле не пустое
                 {
-                    numberSecondly = Convert.ToDouble(Model.secondlyField);
+                    try
+                    {
+                        numberSecondly = Convert.ToDouble(Model.secondlyField);
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Второе поле имеет неверный формат, оно должно быть числовым (дробная часть отделяется символом \",\")!");
+                        return;
+                    }
                 }
-                switch (cbIndex)
+                switch (Model.indexComboBox)
                 {
                     case -1:
                         MessageBox.Show("Арифметическая операция не выбрана");

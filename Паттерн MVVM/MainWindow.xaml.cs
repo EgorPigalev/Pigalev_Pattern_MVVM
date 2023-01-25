@@ -27,12 +27,5 @@ namespace Паттерн_MVVM
             DataContext = VM;
             CommandBindings.Add(VM.bind);
         }
-        private void Field_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if (!(Char.IsDigit(e.Text, 0) || (e.Text == ",")))
-            {
-                e.Handled = true;
-            }
-        }
     }
 }
