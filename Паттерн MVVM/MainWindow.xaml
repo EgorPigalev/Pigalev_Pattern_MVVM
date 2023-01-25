@@ -1,0 +1,29 @@
+﻿<Window x:Class="Паттерн_MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Паттерн_MVVM"
+        mc:Ignorable="d" FontSize="24" MinHeight="300" MinWidth="500"
+        Title="Калькулятор" Height="450" Width="800">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock Text="Выберите арифметическую операцию"/>
+            <ComboBox ItemsSource="{Binding ComboChange}" SelectedIndex="{Binding IndexSelected}"/>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Text="{Binding FirstField}" Style="{StaticResource ResourceKey=tbInputText}" PreviewTextInput="Field_PreviewTextInput"/>
+                <TextBlock Text="{Binding CBIndex}" HorizontalAlignment="Center" Grid.Column="1"/>
+                <TextBox Grid.Column="2" Text="{Binding SecondlyField}" Style="{StaticResource ResourceKey=tbInputText}" PreviewTextInput="Field_PreviewTextInput"/>
+            </Grid>
+            <Button Command="{Binding Command}" Content="Вычислить"/>
+            <GroupBox Header="Результат:">
+                <TextBlock Text ="{Binding ResultChange}" IsEnabled="False"/>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>
