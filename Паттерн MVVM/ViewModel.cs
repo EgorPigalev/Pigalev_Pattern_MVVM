@@ -50,7 +50,7 @@ namespace Паттерн_MVVM
             {
                 Model.indexComboBox = value;
                 cbIndex = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("CBIndex"));  // событие, которое реагирует на изменение свойства
+                PropertyChanged(this, new PropertyChangedEventArgs("CBIndex"));
             }
         }
 
